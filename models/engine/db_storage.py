@@ -15,7 +15,7 @@ from os import getenv
 
 classes = {"City": City,
            "State": State,
-           "Place": Place
+           "Place": Place,
            "User": User,
            "Review": Review,
            "Amenity": Amenity}
