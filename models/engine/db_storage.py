@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is db storage for AirBnb"""
 from sqlalchemy import create_engine
-from slqalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import scoped_session
 from models.base_model import BaseModel
 from models.base_model import Base
