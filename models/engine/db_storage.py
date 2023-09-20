@@ -1,8 +1,24 @@
+#!/usr/bin/python3
+"""This is db storage for AirBnb"""
 from sqlalchemy import create_engine
-from slqalchemy.orm import sessionmaker, scoped_session
-from models.base_model import Base, BaseModel
+from slqalchemy.orm import sessionmaker
+from sqlalchemy.orm import scoped_session
+from models.base_model import BaseModel
+from models.base_model import Base
+from models.city import City
+from models.user import User
+from models.state import State
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from os import getenv
-import models
+
+classes = {"City": City,
+           "State": State,
+           "Place": Place
+           "User": User,
+           "Review": Review,
+           "Amenity": Amenity}
 
 class DBStorage:
     """Class that manages storage of hbnb models using sqlalchemy and mysql"""
@@ -34,7 +50,7 @@ class DBStorage:
                 key = "{}.{}".format(obj.__class__.__name__, obj.id)
                 objects[key] = obj
         else:
-            for cls in models.storage.classes:
+            for cls in classes.values():
                 query = self.__session.query(cls)
                 for obj in query:
                     key = "{}.{}".format(obj.__class__.__name__, obj.id)
@@ -63,4 +79,8 @@ class DBStorage:
 
     def close(self):
         """Closes the current session"""
+        self.__session.remove()
+
+    def close(self):
+        """Closes the current db session"""
         self.__session.remove()
