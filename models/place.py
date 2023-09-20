@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 from models.review import Review
 from models.amenity import Amenity
 
-metadata = BaseModel.metadata
+metadata = Base.metadata
 place_amenity = Table(
         'place_amenity',
         metadata,
