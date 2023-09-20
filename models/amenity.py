@@ -11,4 +11,9 @@ class Amenity(BaseModel, Base):
 
     name = Column(String(128), nullable=False)
 
+    def get_place_amenities(self):
+        """Retrieves related place PlaceAmenity objects"""
+        from models.place import PlaceAmenity
+        return PlaceAmenity.query.filter_by(amenity_id=self.id).all()
+
 
