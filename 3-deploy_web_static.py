@@ -10,10 +10,10 @@ from fabric.api import env, put, run, local
 
 
 # Web server IPs
-env.hosts = ['34.234.201.201', '52.3.249.208']
+env.hosts = ['3.84.168.194', '34.202.159.116']
 
 # Set the SSH key and username as environment variables
-env.key_filename = '~/.ssh/id_rsa'
+env.key_filename = '~/.ssh/school'
 env.user = 'ubuntu'
 
 
